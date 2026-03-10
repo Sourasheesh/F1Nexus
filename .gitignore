@@ -1,2 +1,12 @@
-node_modules
-cache
+# FastF1 cache
+cache/
+backend/cache/
+
+# Node
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.env

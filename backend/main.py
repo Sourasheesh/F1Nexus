@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="F1Nexus API")
 
-app.include_router(router)
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,3 +14,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(router)

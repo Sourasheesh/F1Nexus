@@ -6,4 +6,4 @@ def get_tire_strategy(session):
 
     strategy = strategy.rename(columns={'LapNumber':'Laps'})
 
-    return strategy.to_dict(orient="list")
+    return strategy.to_dict(orient="records")

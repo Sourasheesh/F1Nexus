@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+    
+    --card: 240 10% 6%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 240 10% 6%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 359 95% 45%; /* F1 Red */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 240 10% 12%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 210 100% 50%; /* Tech Blue */
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 12%;
+    --ring: 359 95% 45%;
+
+    --radius: 0.75rem;
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(225, 6, 0, 0.04), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(0, 102, 255, 0.04), transparent 25%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-xl border border-white/5 shadow-2xl shadow-black/50;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#ff1e1e] to-[#cc0000];
+  }
+}
+
+/* Custom Scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Plotly overrides for transparent backgrounds */
+.js-plotly-plot .plotly .main-svg {
+  background: transparent !important;
+}

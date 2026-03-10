@@ -28,7 +28,7 @@ def telemetry(year:int, gp:str, session:str, driver:str):
 
     tel = get_driver_telemetry(session_obj,driver)
 
-    return tel.to_dict(orient="records")
+    return tel
 
 @router.get("/strategy")
 def strategy(year:int,gp:str,session:str):
@@ -37,7 +37,7 @@ def strategy(year:int,gp:str,session:str):
 
     strategy = get_tire_strategy(session_obj)
 
-    return strategy.to_dict(orient="records")
+    return strategy
 
 @router.get("/compare")
 def compare(year:int, gp:str, session:str, driver1:str, driver2:str):
@@ -47,7 +47,7 @@ def compare(year:int, gp:str, session:str, driver1:str, driver2:str):
 
         result = compare_driver_laps(session_obj, driver1, driver2)
 
-        return result.to_dict(orient="records")
+        return result
 
     except Exception as e:
         print("ERROR:", e)
